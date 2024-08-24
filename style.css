@@ -119,20 +119,102 @@ footer {
     margin-top: 20px;
     border-radius: 10px;
 }
+
+/* Flex container for map and info section */
 .map-info-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 20px;
     padding-left: 20px;
+    gap: 40px;
 }
 
 .info-section {
     width: 30%;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 40px;
     background-color: rgba(0, 0, 0, 0.5); /* Same background as other sections for consistency */
     border-radius: 10px;
+    margin-top: 20px;
     color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* About Sentinel-2 Section */
+.about-section {
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-section p {
+    font-size: 18px
+}
+
+/* Real-Life Example Section */
+.example-section {
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.example-section h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.example-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Block for Images and Text */
+.media-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-image {
+    order: 1;
+    margin-right: 20px;
+}
+
+.right-image {
+    order: 2;
+    margin-left: 20px;
+}
+
+.left-text {
+    order: 2;
+    width: 60%;
+    padding-left: 20px;
+}
+
+.right-text {
+    order: 1;
+    width: 60%;
+    padding-right: 20px;
+}
+
+.example-image {
+    max-width: 40%;
+    border-radius: 10px;
 }
