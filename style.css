@@ -11,7 +11,7 @@ body {
 
 /* Styling for header */
 header {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     text-align: center;
     padding: 60px 0;
@@ -33,10 +33,63 @@ header p {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Intro section */
+/* Feature Highlights Section */
+.feature-highlights {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.feature-highlights h2 {
+    font-size: 36px;
+    margin-bottom: 0px;
+    color: #ffffff;
+}
+
+.feature-highlights .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature-highlights .feature-icon {
+    width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.feature-highlights .col-lg-4 {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.feature-highlights h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.feature-highlights p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+/* Map styles */
+#map {
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Interactive Features Section */
 .intro-section {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-    padding: 60px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
     text-align: center;
     border-radius: 10px;
     margin-top: 20px;
@@ -45,7 +98,7 @@ header p {
 .intro-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color:  #ffffff;
+    color: #ffffff;
 }
 
 .intro-section p {
@@ -54,18 +107,9 @@ header p {
     line-height: 1.6;
 }
 
-/* Map styles */
-#map {
-    border: 2px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
 /* Footer styles */
 footer {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
@@ -75,33 +119,20 @@ footer {
     margin-top: 20px;
     border-radius: 10px;
 }
-
-/* Login container styles */
-.login-container {
+.map-info-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.info-section {
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Same background as other sections for consistency */
     border-radius: 10px;
-}
-
-.login-container h2 {
-    margin-bottom: 20px;
-}
-
-#signInForm {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-}
-
-#signInForm label,
-#signInForm input,
-#signInForm button {
-    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
