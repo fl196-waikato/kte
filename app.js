@@ -22,7 +22,7 @@ require([
 
     // Sentinel-2 ImageryLayer
     var sentinelLayer = new ImageryLayer({
-        url: "https://services.arcgisonline.com/arcgis/rest/services/Sentinel2_Imagery/MapServer",
+        url: "https://sentinel.arcgis.com/arcgis/rest/services/Sentinel2/ImageServer",
         title: "Sentinel-2 Imagery"
     });
 
