@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know the Earth</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <!-- ArcGIS API for JavaScript -->
     <script src="https://js.arcgis.com/4.30/"></script>
     <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css">
+    
 </head>
 <body>
     <!-- Header -->
@@ -44,25 +48,21 @@
     </section>
 
   <!-- Map and Info Section -->
-<div class="map-info-container">
+  <div class="map-info-container">
     <div id="map" style="height: 600px; width: 70%;"></div>
-
     <div class="info-section">
         <h2>About Sentinel-2 and ArcGIS</h2>
         <p>Utilize the power of Sentinel-2's high-resolution optical imagery combined with ArcGIS services to explore and analyze the Earth's surface. Our interactive map leverages the Sentinel-2 dataset, which offers detailed multispectral data for environmental monitoring, agriculture, and disaster response. Switch between various ArcGIS map layers to visualize and understand the dynamic changes happening across the globe.</p>
         <p>Sentinel-2 is part of the Copernicus Programme by the European Space Agency (ESA), providing high-resolution optical imagery over the Earth's land surface. It is particularly valuable for applications such as land monitoring, agriculture, forestry, disaster control, and environmental protection.</p>
         <p>The Sentinel-2 satellites capture multispectral data in 13 bands, ranging from visible and near-infrared to short-wave infrared, allowing for a wide range of analyses from vegetation health monitoring to mapping changes in land use.</p>
     </div>
-</div>
+  </div>
 
-<!-- About Sentinel-2 Section -->
-<section id="about-sentinel" class="about-section">
-
-    <!-- Real-life Example -->
+  <!-- About Sentinel-2 Section -->
+  <section id="about-sentinel" class="about-section">
     <div class="example-section">
-        <h3>Real-Life Applications: Wildfire Monitoring</h3>
+        <h3>Wildfire Monitoring</h3>
         
-        <!-- Athens Image with Text on the Right -->
         <div class="media-block">
             <img src="images/athens.jpg" alt="Athens Fire - Sentinel-2 Image" class="example-image left-image">
             <div class="text-content right-text">
@@ -70,7 +70,6 @@
             </div>
         </div>
 
-        <!-- Athens GIF with Text on the Left -->
         <div class="media-block">
             <div class="text-content left-text">
                 <p>Sentinel-2's multispectral capabilities allow for the detection of hotspots and burned areas using different bands. For instance, the Short-Wave Infrared (SWIR) bands are particularly useful for identifying active fires and distinguishing between smoke, water vapor, and the fire itself. The GIF below illustrates the progression of the wildfire near Athens, showing how Sentinel-2 data can be used to monitor fires over time.</p>
@@ -79,14 +78,32 @@
         </div>
         
     </div>
-</section>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Know the Earth. All rights reserved.</p>
-    </footer>
+  <!-- Data Visualization Section -->
+  <section id="data-visualization" class="about-section">
+      <h3>Data Visualization: Global Annual Tree Cover Loss from Fires</h3>
+      <div class="row align-items-center">
+          <div class="col-lg-8">
+              <canvas id="sentinelChart" width="800" height="400"></canvas>
+          </div>
+          <div class="col-lg-4">
+              <div class="chart-text">
+                  
+                <p>This chart visualizes the global annual tree cover loss from fires, focusing on three major regions: Brazil, Indonesia, and the Democratic Republic of Congo (DRC). The data, sourced from Global Forest Watch, spans from 2001 to 2023 and highlights the variability in tree cover loss due to fire events in these regions. Brazil shows a significant spike around 2016, correlating with increased agricultural expansion and land-clearing fires. Indonesia also exhibits notable peaks during periods of intense dry seasons and agricultural fires. The DRC displays relatively stable tree cover loss from fires, reflecting ongoing deforestation and land use changes. This data, supported by Sentinel-2 satellite imagery, underscores the critical need for monitoring and mitigating deforestation activities globally, as they contribute significantly to greenhouse gas emissions and biodiversity loss.</p>
+</div>
+          </div>
+      </div>
+  </section>
 
-    <!-- Custom JavaScript -->
-    <script src="app.js"></script>
+  <!-- Footer -->
+  <footer>
+      <p>© 2024 Know the Earth. All rights reserved.</p>
+  </footer>
+
+  <!-- Custom JavaScript -->
+   
+  <script src="app.js"></script>
+  
 </body>
 </html>
