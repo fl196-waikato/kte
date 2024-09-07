@@ -7,6 +7,8 @@ require([
     "esri/widgets/Legend"
 ], function(Map, MapView, ImageryLayer, BasemapGallery, LayerList, Legend) {
 
+    console.log('Require callback executed');
+
     var lastStoredLocation = null; // 用于记录最后一次存储的位置
     var locationThreshold = 0.05; // 定义位置变化的阈值，单位为度（大约5公里）
     var timeThreshold = 5000; // 定义时间间隔为5秒
@@ -38,7 +40,7 @@ require([
         return true;
     }
 
-    const Auth=Amplify.Auth;
+    const Auth = Amplify.Auth;
 
     async function getUserInfo() {
         try {
@@ -51,7 +53,7 @@ require([
         }
     }
 
-    // Function to collect user behavior data
+// Function to collect user behavior data
     async function collectUserData(mapType) {
         const userId = await getUserInfo();  // 获取用户ID
         if (!userId) {
@@ -62,21 +64,29 @@ require([
         const userData = {
             user_id: userId,
             query_time: new Date().toISOString(),
-            query_location: view.center.toArray(), // 获取当前地图中心的经纬度
-            map_type: mapType
+            query_location: view.center.toArray().join(','), // 将数组转换为字符串
+            map_type: basemap
         };
 
-        // Send data to AWS Lambda
-        fetch('https://your-lambda-endpoint.amazonaws.com/dev/collectUserData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        })
-            .then(response => response.json())
-            .then(data => console.log('Success:', data))
-            .catch((error) => console.error('Error:', error));
+        try {
+            const session = await Auth.currentSession();
+            const token = session.getIdToken().getJwtToken();
+
+            // Send data to AWS Lambda
+            const response = await fetch('https://eu34h9i8yd.execute-api.us-east-1.amazonaws.com/dev/collectUserData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(userData)
+            });
+
+            const data = await response.json();
+            console.log('Success:', data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     // Create the map
@@ -92,8 +102,11 @@ require([
         zoom: 2
     });
 
+
+    console.log('Basemap:', map.basemap);
+    console.log('Type of Basemap:', typeof map.basemap);
     // Call the function to collect user data on initial load
-    collectUserData(map.basemap.id);
+    collectUserData(map.basemap);
 
     // Sentinel-2 ImageryLayer
     var sentinelLayer = new ImageryLayer({
@@ -124,7 +137,7 @@ require([
 
     // Event listener for basemap change
     basemapGallery.watch('activeBasemap', function(newValue) {
-        collectUserData(newValue.id);  // Collect data whenever basemap is changed
+        collectUserData(newValue);  // Collect data whenever basemap is changed
     });
 
     // Load and parse the CSV file using PapaParse
@@ -204,4 +217,4 @@ require([
             });
         }
     });
-});  // End of require block
+});  // End of require bloc
